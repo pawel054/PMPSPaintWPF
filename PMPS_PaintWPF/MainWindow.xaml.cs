@@ -16,9 +16,18 @@ namespace PMPS_PaintWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        private bool editMode = false;
+        private bool selectMode = false;
+        InkCanvas inkCanvas;
         public MainWindow()
         {
             InitializeComponent();
         }
+
+        private void ClearButton_Clicked(object sender, RoutedEventArgs e)
+        {
+            inkCanvas.Strokes.Clear();
+        }
+
     }
 }
