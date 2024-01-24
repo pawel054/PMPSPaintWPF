@@ -8,4 +8,28 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Images\iconBrush.png" />
+    <None Remove="Images\iconClear.png" />
+    <None Remove="Images\iconColor.png" />
+    <None Remove="Images\iconErase.png" />
+    <None Remove="Images\iconSave.png" />
+    <None Remove="Images\iconSelect.png" />
+    <None Remove="Images\iconWeigth.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\iconBrush.png" />
+    <Resource Include="Images\iconClear.png" />
+    <Resource Include="Images\iconColor.png" />
+    <Resource Include="Images\iconErase.png" />
+    <Resource Include="Images\iconSave.png" />
+    <Resource Include="Images\iconSelect.png" />
+    <Resource Include="Images\iconWeigth.png" />
+  </ItemGroup>
+
 </Project>
