@@ -81,21 +81,6 @@ namespace PMPS_PaintWPF
             }
         }
 
-        private void InkCanvas_PreviewMouseUp(object sender, MouseEventArgs e)
-        {
-            if (selectMode)
-            {
-                inkCanvas.EditingMode = InkCanvasEditingMode.Select;
-            }
-            else
-            {
-                if(eraseMode == false)
-                {
-                    inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
-                }
-            }
-        }
-
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
