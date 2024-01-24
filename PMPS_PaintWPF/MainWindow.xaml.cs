@@ -58,6 +58,7 @@ namespace PMPS_PaintWPF
             }
             else
             {
+                inkCanvas.DefaultDrawingAttributes.Color = colorPicker.SelectedColor.Value;
                 inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
             }
         }
@@ -72,6 +73,7 @@ namespace PMPS_PaintWPF
             }
             else
             {
+                inkCanvas.DefaultDrawingAttributes.Color = colorPicker.SelectedColor.Value;
                 inkCanvas.EditingMode= InkCanvasEditingMode.Ink;
             }
         }
@@ -88,6 +90,16 @@ namespace PMPS_PaintWPF
                 {
                     inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
                 }
+            }
+        }
+
+        private void SaveButton_Clicked(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Pliki obrazów|*.jpg;*.png;*.bmp;";
+            if(saveFileDialog.ShowDialog() == true )
+            {
+                SaveAsImage(saveFileDialog.FileName);
             }
         }
     }
