@@ -29,11 +29,20 @@ namespace PMPS_PaintWPF
             inkCanvas.Strokes.Clear();
         }
 
-        private void ColorPicker_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
+        private void ColorPicker_SelectedColorChange(object sender, RoutedPropertyChangedEventArgs<Color?> e)
         {
             if(inkCanvas != null && colorPicker.SelectedColor.HasValue)
             {
                 inkCanvas.DefaultDrawingAttributes.Color = colorPicker.SelectedColor.Value;
+            }
+        }
+
+        private void ThicknessSlider_ValueChange(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if(inkCanvas != null && thicknessSlider != null)
+            {
+                inkCanvas.DefaultDrawingAttributes.Width = thicknessSlider.Value;
+                inkCanvas.DefaultDrawingAttributes.Height = thicknessSlider.Value;
             }
         }
     }
