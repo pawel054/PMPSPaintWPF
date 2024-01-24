@@ -8,8 +8,25 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
-    
-    
+    <Window.Resources>
+        <Style x:Key="CustomButton" TargetType="Button">
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Background" Value="Pink"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Width" Value="35" />
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="White" BorderThickness="0" CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
     <Grid>
         
     </Grid>
