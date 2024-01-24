@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:xctk="htpp://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:PMPS_PaintWPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
@@ -28,6 +28,54 @@
     </Window.Resources>
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Background="#ABD4DA">
+            <StackPanel HorizontalAlignment="Center"  Orientation="Horizontal" Margin="20,5,0,5">
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <Button Click="SaveButton_Click" Margin="0,5,0,0" Style="{StaticResource CustomButton}">
+                        <Button.Content>
+                            <Image Source="Images/iconSave.png" Width="20" Height="20"/>
+                        </Button.Content>
+                    </Button>
+                    <Button x:Name="selectBtn" Click="SelectButton_Click" Margin="10,5,0,0" Style="{StaticResource CustomButton}">
+                        <Button.Content>
+                            <Image Source="Images/iconSelect.png" Width="20" Height="20"/>
+                        </Button.Content>
+                    </Button>
+                    <Button x:Name="eraseBtn" Click="EraseButton_Click" Margin="10,5,0,0" Style="{StaticResource CustomButton}">
+                        <Button.Content>
+                            <Image Source="Images/iconErase.png" Width="20" Height="20"/>
+                        </Button.Content>
+                    </Button>
+                    <Button Click="ClearButton_Click" Margin="10,5,0,0" Style="{StaticResource CustomButton}">
+                        <Button.Content>
+                            <Image Source="Images/iconClear.png" Width="20" Height="20"/>
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="35,5,0,5">
+                    <Border Background="Black" CornerRadius="7" Padding="10,0,10,0">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Image Source="Images/iconWeigth.png" Height="25" Width="25"/>
+                            <Slider x:Name="thicknessSlider" Minimum="1" Maximum="20" Width="100" Height="20" Value="4" ValueChanged="ThicknessSlider_ValueChanged"/>
+                        </StackPanel>
+                    </Border>
+                    <Border Background="Black" CornerRadius="7" Margin="10,0,0,0" Padding="10,0,10,0">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Image Source="Images/iconColor.png" Height="25" Width="25"/>
+                            <xctk:ColorPicker x:Name="colorPicker" Width="100" Height="20" SelectedColorChanged="ColorPicker_SelectedColorChanged" SelectedColor="Blue"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        <InkCanvas Grid.Row="1" x:Name="inkCanvas" Background="White" EditingMode="Ink" PreviewMouseUp="InkCanvas_PreviewMouseUp">
+            <InkCanvas.DefaultDrawingAttributes>
+                <DrawingAttributes x:Name="inkAttributes" Color="Blue" Width="4" Height="4"/>
+            </InkCanvas.DefaultDrawingAttributes>
+        </InkCanvas>
     </Grid>
 </Window>
