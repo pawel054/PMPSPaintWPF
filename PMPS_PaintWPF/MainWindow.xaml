@@ -32,6 +32,15 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Background="#ABD4DA">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20,5,0,5">
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        <InkCanvas Grid.Row="1">
+            
+        </InkCanvas>
     </Grid>
 </Window>
