@@ -72,8 +72,10 @@
                 </StackPanel>
             </StackPanel>
         </StackPanel>
-        <InkCanvas Grid.Row="1">
-            
+        <InkCanvas Grid.Row="1" x:Name="inkCanvas" Background="White" EditingMode="Ink" PreviewMouseUp="InkCanvas_PreviewMouseUp">
+            <InkCanvas.DefaultDrawingAttributes>
+                <DrawingAttributes x:Name="inkAttributes" Color="Blue" Width="4" Height="4"/>
+            </InkCanvas.DefaultDrawingAttributes>
         </InkCanvas>
     </Grid>
 </Window>
