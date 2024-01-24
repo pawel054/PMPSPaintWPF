@@ -102,5 +102,19 @@ namespace PMPS_PaintWPF
                 SaveAsImage(saveFileDialog.FileName);
             }
         }
+
+        private void SaveAsImage(string fileName)
+        {
+            RenderTargetBitmap rtb = new RenderTargetBitmap((int)inkCanvas.ActualWidth, (int)inkCanvas.ActualHeight, 96d, 96d, PixelFormats.Default);
+            rtb.Render(inkCanvas);
+
+            BitmapEncoder encoder = new PngBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(rtb));
+
+            using(var fs = new FileStream(fileName, FileMode.Create))
+            {
+               encoder.Save(fs);
+            }
+        }
     }
 }
