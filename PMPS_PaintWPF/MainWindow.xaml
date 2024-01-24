@@ -35,8 +35,28 @@
         <StackPanel Grid.Row="0" Orientation="Horizontal" Background="#ABD4DA">
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20,5,0,5">
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                    
+                    <Button Click="SaveButton_Click" Margin="0,5,0,0" Style="{StaticResource CustomButton}">
+                        <Button.Content>
+                            <Image Source="Images/iconSave.png" Width="20" Height="20"/>
+                        </Button.Content>
+                    </Button>
+                    <Button x:Name="selectBtn" Click="SelectButton_Click" Margin="10,5,0,0" Style="{StaticResource CustomButton}">
+                        <Button.Content>
+                            <Image Source="Images/iconSelect.png" Width="20" Height="20"/>
+                        </Button.Content>
+                    </Button>
+                    <Button x:Name="eraseBtn" Click="EraseButton_Click" Margin="10,5,0,0" Style="{StaticResource CustomButton}">
+                        <Button.Content>
+                            <Image Source="Images/iconErase.png" Width="20" Height="20"/>
+                        </Button.Content>
+                    </Button>
+                    <Button Click="ClearButton_Click" Margin="10,5,0,0" Style="{StaticResource CustomButton}">
+                        <Button.Content>
+                            <Image Source="Images/iconClear.png" Width="20" Height="20"/>
+                        </Button.Content>
+                    </Button>
                 </StackPanel>
+                
             </StackPanel>
         </StackPanel>
         <InkCanvas Grid.Row="1">
