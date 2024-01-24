@@ -11,7 +11,7 @@
     <Window.Resources>
         <Style x:Key="CustomButton" TargetType="Button">
             <Setter Property="Padding" Value="10"/>
-            <Setter Property="Background" Value="Pink"/>
+            <Setter Property="Background" Value="Black"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Width" Value="35" />
             <Setter Property="Height" Value="35"/>
