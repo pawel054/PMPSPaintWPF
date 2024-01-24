@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using Microsoft.Win32;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,7 +17,7 @@ namespace PMPS_PaintWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        private bool editMode = false;
+        private bool eraseMode = false;
         private bool selectMode = false;
         InkCanvas inkCanvas;
         public MainWindow()
@@ -43,6 +44,20 @@ namespace PMPS_PaintWPF
             {
                 inkCanvas.DefaultDrawingAttributes.Width = thicknessSlider.Value;
                 inkCanvas.DefaultDrawingAttributes.Height = thicknessSlider.Value;
+            }
+        }
+
+        private void EraseButton_Clicked(object sender, RoutedEventArgs e)
+        {
+            eraseMode = !eraseMode;
+
+            if(eraseMode)
+            {
+                inkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
+            }
+            else
+            {
+                inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
             }
         }
     }
