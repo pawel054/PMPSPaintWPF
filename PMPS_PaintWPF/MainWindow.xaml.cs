@@ -20,18 +20,17 @@ namespace PMPS_PaintWPF
     {
         private bool eraseMode = false;
         private bool selectMode = false;
-        InkCanvas inkCanvas;
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void ClearButton_Clicked(object sender, RoutedEventArgs e)
+        private void ClearButton_Click(object sender, RoutedEventArgs e)
         {
             inkCanvas.Strokes.Clear();
         }
 
-        private void ColorPicker_SelectedColorChange(object sender, RoutedPropertyChangedEventArgs<Color?> e)
+        private void ColorPicker_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
         {
             if(inkCanvas != null && colorPicker.SelectedColor.HasValue)
             {
@@ -39,7 +38,7 @@ namespace PMPS_PaintWPF
             }
         }
 
-        private void ThicknessSlider_ValueChange(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void ThicknessSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             if(inkCanvas != null && thicknessSlider != null)
             {
@@ -48,31 +47,35 @@ namespace PMPS_PaintWPF
             }
         }
 
-        private void EraseButton_Clicked(object sender, RoutedEventArgs e)
+        private void EraseButton_Click(object sender, RoutedEventArgs e)
         {
             eraseMode = !eraseMode;
 
             if(eraseMode)
             {
+                eraseBtn.Background = new SolidColorBrush(Colors.Gray);
                 inkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
             }
             else
             {
+                eraseBtn.Background = new SolidColorBrush(Colors.Black);
                 inkCanvas.DefaultDrawingAttributes.Color = colorPicker.SelectedColor.Value;
                 inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
             }
         }
 
-        private void SelectButton_Clicked(Object sender, RoutedEventArgs e)
+        private void SelectButton_Click(Object sender, RoutedEventArgs e)
         {
             selectMode = !selectMode;
 
             if(selectMode)
             {
+                selectBtn.Background = new SolidColorBrush(Colors.Gray);
                 inkCanvas.EditingMode = InkCanvasEditingMode.Select;
             }
             else
             {
+                selectBtn.Background = new SolidColorBrush(Colors.Black);
                 inkCanvas.DefaultDrawingAttributes.Color = colorPicker.SelectedColor.Value;
                 inkCanvas.EditingMode= InkCanvasEditingMode.Ink;
             }
@@ -93,7 +96,7 @@ namespace PMPS_PaintWPF
             }
         }
 
-        private void SaveButton_Clicked(object sender, RoutedEventArgs e)
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Pliki obrazów|*.jpg;*.png;*.bmp;";
