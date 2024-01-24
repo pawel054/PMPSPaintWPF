@@ -29,5 +29,12 @@ namespace PMPS_PaintWPF
             inkCanvas.Strokes.Clear();
         }
 
+        private void ColorPicker_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
+        {
+            if(inkCanvas != null && colorPicker.SelectedColor.HasValue)
+            {
+                inkCanvas.DefaultDrawingAttributes.Color = colorPicker.SelectedColor.Value;
+            }
+        }
     }
 }
