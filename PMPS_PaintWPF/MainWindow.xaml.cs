@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using System.IO;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -72,6 +73,21 @@ namespace PMPS_PaintWPF
             else
             {
                 inkCanvas.EditingMode= InkCanvasEditingMode.Ink;
+            }
+        }
+
+        private void InkCanvas_PreviewMouseUp(object sender, MouseEventArgs e)
+        {
+            if (selectMode)
+            {
+                inkCanvas.EditingMode = InkCanvasEditingMode.Select;
+            }
+            else
+            {
+                if(eraseMode == false)
+                {
+                    inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
+                }
             }
         }
     }
