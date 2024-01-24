@@ -60,5 +60,19 @@ namespace PMPS_PaintWPF
                 inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
             }
         }
+
+        private void SelectButton_Clicked(Object sender, RoutedEventArgs e)
+        {
+            selectMode = !selectMode;
+
+            if(selectMode)
+            {
+                inkCanvas.EditingMode = InkCanvasEditingMode.Select;
+            }
+            else
+            {
+                inkCanvas.EditingMode= InkCanvasEditingMode.Ink;
+            }
+        }
     }
 }
